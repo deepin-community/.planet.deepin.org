@@ -1,0 +1,14 @@
+welcome:
+  other: 'Welcome to Planet deepin'
+introduction:
+  other: 'This is a feed aggregator that collects what the contributors to the [deepin community](https://deepin.org) are writing on their respective blogs'
+down-post:
+  other: 'Go down one post'
+up-post:
+  other: 'Go up one post'
+theme:
+  other: 'Theme'
+dark:
+  other: 'Dark'
+light:
+  other: 'Light'

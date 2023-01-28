@@ -1,0 +1,7 @@
+<link rel="preload" href="{{ index .Site.Data.assets "bootstrap.min.css" | relURL }}" as="style">
+<link rel="stylesheet" href="{{ index .Site.Data.assets "bootstrap.min.css" | relURL }}" media="all">
+<link rel="preload" href="{{ index .Site.Data.assets "bootstrap-icons.css" | relURL }}" as="style">
+<link rel="stylesheet" href="{{ index .Site.Data.assets "bootstrap-icons.css" | relURL }}" media="all">
+{{ if templates.Exists "partials/custom_styles.html" }}
+{{ partial "custom_styles.html" . }}
+{{ end }}

@@ -1,0 +1,16 @@
+{{/*
+SPDX-FileCopyrightText: 2021-2022 Phu Hung Nguyen <phu.nguyen@kdemail.net>
+SPDX-License-Identifier: LGPL-3.0-or-later
+*/}}
+
+{{ $index := .index }}
+{{ with .post }}
+{{ if eq $index 0 }}
+  <h3>{{ .Params.date | time.Format ":date_full" }}</h3>
+{{ else }}
+  {{ $p := .Next }}
+  {{ if not (and (eq $p.Date.Year .Date.Year) (eq $p.Date.Month .Date.Month) (eq $p.Date.Day .Date.Day))}}
+  <h3>{{ .Params.date | time.Format ":date_full" }}</h3>
+  {{ end }}
+{{ end }}
+{{ end }}

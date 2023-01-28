@@ -1,0 +1,39 @@
+baseURL = "https://deepin-community.github.io/planet/"
+languageCode = "zh-cn"
+defaultContentLanguage = "zh-cn"
+title = "Planet deepin"
+theme = "planet"
+
+[taxonomies]
+  author = "authors"
+  category = "categories"
+  series = "series"
+  tag = "tags"
+
+[mediaTypes]
+  [mediaTypes."application/atom+xml"]
+    suffixes = ["xml"]
+
+[languages]
+  [languages.zh-cn]
+    languageName = "简体中文"
+    weight = 1
+  [languages.en]
+    languageName = "English"
+    weight = 2
+
+[outputFormats]
+  [outputFormats.Atom]
+    # https://validator.w3.org/feed/docs/atom.html#whatIsAtom
+    name = "Atom"
+    mediaType = "application/atom+xml"
+    # generated file = <baseName>.<mediaType."application/atom+xml".suffixes[0]> = atom.xml
+    baseName = "atom"
+    isPlainText = false
+    rel = "alternate"
+    isHTML = false
+    noUgly = true
+    permalinkable = false
+
+[outputs]
+  home = ["HTML", "RSS"]

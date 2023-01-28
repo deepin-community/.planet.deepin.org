@@ -1,0 +1,36 @@
+{{ define "main" }}
+  {{/* Merge post in all languages and display them all. Since Chinese might be the main content language for a long time... */}}
+  {{ $pages := .Site.RegularPages }}
+  {{ range .Site.Home.Translations }}
+    {{ $pages = $pages | lang.Merge .Site.RegularPages }}
+  {{ end }}
+
+  {{ $paginator := .Paginate (where $pages "Layout" "!=" "search") }}
+  {{ if eq $paginator.PageNumber 1 }}
+  {{ partial "main-info.html" . }}
+{{ end }}
+
+<div class="btn-group-vertical post-nav mx-2">
+  <button type="button" class="btn btn-outline-primary" onclick="navPosts(-1);" title="{{ i18n "up-post" }}">
+    <i class="bi bi-chevron-double-up"></i>
+  </button>
+  <button type="button" class="btn btn-outline-primary" onclick="navPosts(1);" title="{{ i18n "down-post" }}">
+    <i class="bi bi-chevron-double-down"></i>
+  </button>
+</div>
+<div class="container my-4 p-0">
+  {{ template "_internal/pagination.html" . }}
+  {{ range $index, $post := $paginator.Pages }}
+    <div class="single-post" id="{{ add $index 1 }}">
+      {{ partial "calendar.html" (dict "index" $index "post" $post) }}
+      {{ partial "single-post.html" (dict "index" $index "post" $post) }}
+    </div>
+  {{ end }}
+  {{ template "_internal/pagination.html" . }}
+</div>
+{{ end }}
+
+{{ define "tail-import" }}
+{{ $jsPostNav := resources.Get "js/post-nav.js" | minify | fingerprint }}
+<script src="{{ $jsPostNav.Permalink }}" defer=""></script>
+{{ end }}

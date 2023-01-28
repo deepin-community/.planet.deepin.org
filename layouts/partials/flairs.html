@@ -1,0 +1,18 @@
+{{ with .Params.irc }}
+<span class="badge bg-dark"><img src="{{ "img/irc.svg" | relURL }}"/> {{ . }}</span>
+{{ end }}
+{{ with .Params.telegram }}
+<a href="tg://user?id={{ . }}" target="_blank">
+  <span class="badge bg-light"><img width=12px height=12px src="{{ "img/telegram.svg" | relURL }}"/> {{ . }}</span>
+</a>
+{{ end }}
+{{ with .Params.matrix }}
+<a href="https://chat.getdeepin.org/" target="_blank">
+  <span class="badge bg-secondary"><img width=12px height=12px src="{{ "img/matrix.svg" | relURL }}"/> {{ . }}</span>
+</a>
+{{ end }}
+{{ with .Params.gsoc }}
+<a href="https://summerofcode.withgoogle.com/" target="_blank">
+  <span class="badge bg-info"><img width=12px height=12px src="{{ "img/gsoc.svg" | relURL }}"/> GSoC</span>
+</a>
+{{ end }}

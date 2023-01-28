@@ -1,0 +1,20 @@
+<div class="bg-body-secondary py-3 mb-3 border-bottom">
+  <div class="container">
+    <div class="col-10 mx-auto my-auto text-center">
+      <h2>{{ i18n "welcome" }}</h2>
+      <h5>{{ i18n "introduction" | markdownify }}</h5>
+    </div>
+    <div class="col-12 text-center mt-3">
+      {{ $curLang := .Lang }}
+      {{ range sort .AllTranslations "Language.LanguageName" }}
+      <a class="mx-2" hreflang="{{ .Language.Lang }}" lang="{{ .Language.Lang }}" href="{{ .Permalink }}" onclick="storeLang(event)">
+        {{ if eq .Lang $curLang }}
+        <mark>{{ .Language.LanguageName }}</mark>
+        {{ else }}
+        {{ .Language.LanguageName }}
+        {{ end }}
+      </a>
+      {{ end }}
+    </div>
+  </div>
+</div>

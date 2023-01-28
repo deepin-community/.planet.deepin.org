@@ -1,0 +1,4 @@
+<script defer src="{{ index .Site.Data.assets "js/bootstrap.bundle.min.js" | relURL }}"></script>
+{{ if templates.Exists "partials/custom_scripts.html" }}
+  {{ partial "custom_scripts.html" . }}
+{{ end }}

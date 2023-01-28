@@ -1,0 +1,15 @@
+{{/*
+SPDX-FileCopyrightText: 2021 Pablo Marcos <kde@pablomarcos.me>
+SPDX-FileCopyrightText: 2022 Phu Hung Nguyen <phu.nguyen@kdemail.net>
+SPDX-License-Identifier: LGPL-3.0-or-later
+*/}}
+{{- $index := slice -}}
+{{- $posts := where .Site.RegularPages "Layout" "!=" "search" }}
+{{- range $i, $post := $posts }}
+  {{- $pageNum := add (div $i site.Params.paginate) 1 }}
+  {{- $hash := add (mod $i site.Params.paginate) 1 }}
+  {{- $permalink := cond (eq $pageNum 1) (printf "/#%d" $hash) (printf "/page/%d/#%d" $pageNum $hash) }}
+  {{- $plain := $post.Plain | htmlUnescape }}
+  {{- $index = $index | append (dict "title" $post.Title "tags" $post.Params.tags "categories" $post.Params.categories "content" $plain "permalink" $permalink "metadata" $post.Params) -}}
+{{- end -}}
+{{- $index | jsonify -}}

@@ -1,0 +1,40 @@
+<div class="row m-0 justify-content-center">
+  <div class="col-12 p-0">
+    <div class="card mb-3 card-sm-border-0 p-0">
+      <div class="row m-0 border-bottom">
+        <div class="col card-header pl-1 pl-md-3 border-0">
+          <h3 class="mt-0 h5">
+            <a href="{{ .post.Params.post_url }}" class="text-decoration-none" target="_blank" rel="noopener noreferrer">{{ .post.Title }}</a>
+            <a href="{{ .post.Permalink }}" class="text-decoration-none post-anchor">🔗</a>
+          </h3>
+          <div class="d-flex flex-fill align-items-center">
+            <a href="{{ .post.Params.site_url }}" target="_blank" rel="noopener noreferrer">
+              {{ $avatar := "avatar/default.svg" | relURL }}
+              {{ with .post.Params.avatar }}
+                {{ if in . "://" }}
+                  {{ $avatar = . }}
+                {{ else }}
+                  {{ $avatar = printf "avatar/%s" . | relURL }}
+                {{ end }}
+              {{ end }}
+              <img height="51px" class="my-auto me-2" src="{{ $avatar }}"/>
+            </a>
+            <div class="d-flex flex-column">
+              <span>
+                <a href="{{ .post.Params.site_url }}" target="_blank" rel="noopener noreferrer" class="text-decoration-none">{{ .post.Params.author }}</a>
+                {{ partial "flairs.html" .post }}
+              </span>
+              <span class="text-muted">{{ .post.Params.date | time.Format ":time_short" }}</span>
+            </div>
+            <a href="{{ .post.Params.feed_url }}" target="_blank" rel="noopener noreferrer" class="ms-auto post-feed text-decoration-none" title="{{ .post.Params.feed_summary }}">
+              {{ if in .post.Params.format "rss" }}RSS {{ else }}Atom {{end}}<i class="bi bi-rss"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="card-body markdown">
+        {{ .post.Content }}
+      </div>
+    </div>
+  </div>
+</div>

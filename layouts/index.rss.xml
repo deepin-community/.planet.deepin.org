@@ -1,0 +1,35 @@
+{{ printf "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\" ?>" | safeHTML }}
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>{{ .Site.Title }} | {{ .Language.LanguageName }}</title>
+    <link>{{ .Permalink }}</link>
+    <description>{{ .Site.Title }} | {{ .Language.LanguageName }}</description>
+    <image>
+      <link>{{ .Permalink }}</link>
+      <title>{{ .Site.Title }}</title>
+      <url>{{ "/img/planet.png" | absURL }}</url>
+      <height>48</height>
+      <width>48</width>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    {{- with .Site.LanguageCode }}<language>{{.}}</language>{{ end }}
+    {{- with .Site.Copyright }}<copyright>{{.}}</copyright>{{ end }}
+    {{- $pages := where site.RegularPages "Layout" "!=" "search" -}}
+    <lastBuildDate>{{ (index $pages 0).Date.Format "2006-01-02T15:04:05-07:00" | safeHTML }}</lastBuildDate>
+    {{- with .OutputFormats.Get "RSS" }}
+    {{ printf "<atom:link href=%q rel=\"self\" type=%q />" .Permalink .MediaType | safeHTML }}
+    {{- end }}
+    {{- $limit := (cond (le site.Config.Services.RSS.Limit 0) 65536 site.Config.Services.RSS.Limit) }}
+    {{- range first $limit $pages }}
+    <item>
+      <title>{{ .Title }}</title>
+      <link>{{ .Params.post_url }}</link>
+      <pubDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</pubDate>
+      {{ with .Params.license }}<license>{{.}}</license>{{ end }}
+      <guid isPermaLink="{{ in .Params.guid "://" }}">{{ .Params.guid }}</guid>
+      <description>{{ .Content | html }}</description>
+      {{ with .Params.author }}<author>{{.}}</author>{{ end }}
+    </item>
+    {{ end }}
+  </channel>
+</rss>
