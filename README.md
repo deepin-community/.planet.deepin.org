@@ -11,9 +11,9 @@ subscribe the feed for that tag only to Planet deepin.
 ## Adding your feed
 
 If you are from an existing SIG in deepin community and prefer to add the feed of your SIG, then you can add your
-SIG's feed by updating your SIG's metadata.yml config file. Head to [deepin-community/SIG](sig repo) to learn more.
+SIG's feed by updating your SIG's metadata.yml config file. Head to [deepin-community/SIG](sig-repo) to learn more.
 
-[sig repo]: https://github.com/deepin-community/SIG
+[sig-repo]: https://github.com/deepin-community/SIG
 
 If you are a solo contributor and want to get your feed added, we prefer Pull Requests via GitHub:
 
@@ -38,11 +38,11 @@ flairs   = # (optional) space-separated list of flairs of the author, currently 
            #   gsoc
 ```
 
-If you do not have a GitHub account, you can drop a mail to [deepin-devel mailing list](mailing list) or reach us out
-in our [Matrix chatroom](deepin matrix) with the above information provided, so we can help you get it added.
+If you do not have a GitHub account, you can drop a mail to [deepin-devel mailing list](mailing-list) or reach us out
+in our [Matrix chatroom](deepin-matrix) with the above information provided, so we can help you get it added.
 
-[mailing list]: https://www.freelists.org/list/deepin-devel
-[deepin matrix]: https://matrix.to/#/#deepin-community:deepin.org
+[mailing-list]: https://www.freelists.org/list/deepin-devel
+[deepin-matrix]: https://matrix.to/#/#deepin-community:deepin.org
 
 ## Planet deepin Guidelines
 
@@ -81,18 +81,18 @@ See HACKING.zh.md
 
 ## About and Credit
 
-There are a lot of FOSS community are running their own feed aggregator, like [Planet Qt](planet qt), 
-[Planet KDE](planet kde), [NixOS Planet](nixos planet), [Planet Debian](planet debian) and so on. Such platform
+There are a lot of FOSS community are running their own feed aggregator, like [Planet Qt](planet-qt), 
+[Planet KDE](planet-kde), [NixOS Planet](nixos-planet), [Planet Debian](planet-debian) and so on. Such platform
 could help gathering information that related to the community and made them available to more people. Planet deepin
 is also intended to be used in the same usage.
 
-[planet qt]: https://planet.qt.io/
-[planet kde]: https://planet.kde.org/
-[nixos planet]: https://planet.nixos.org/
-[planet debian]: https://planet.debian.org/
+[planet-qt]: https://planet.qt.io/
+[planet-kde]: https://planet.kde.org/
+[nixos-planet]: https://planet.nixos.org/
+[planet-debian]: https://planet.debian.org/
 
-This repo is based on [HUGO](hugo), and is modified [from the source](planet kde source) of [Planet KDE](planet kde).
+This repo is based on [HUGO](hugo), and is modified [from the source](planet-kde-source) of [Planet KDE](planet-kde).
 Go check them out if you are interested. Please refer to the header of each source file to see about license information.
 
 [hugo]: https://gohugo.io/
-[planet kde source]: https://invent.kde.org/websites/planet-kde-org/
+[planet-kde-source]: https://invent.kde.org/websites/planet-kde-org/
