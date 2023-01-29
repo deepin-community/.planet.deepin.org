@@ -11,7 +11,7 @@ deepin 星球是一个订阅源聚合站点，其汇集了参与 deepin 社区�
 ## 添加你的订阅源
 
 如果你是现有 deepin 社区中的兴趣小组（SIG）成员且希望为你的小组添加订阅，那么你可以直接更新对应小组的 metadata.yml 配置文件
-来达到此目的。请前往 [deepin-community/SIG](sig-repo) 仓库来了解更多。
+来达到此目的。请前往 [deepin-community/SIG][sig-repo] 仓库来了解更多。
 
 [sig-repo]: https://github.com/deepin-community/SIG
 
@@ -34,10 +34,11 @@ flairs   = # (可选) 你的一些附属信息，为使用空格分割的列表�
            #   irc:irc_nickname          (例如 irc:myircnickname)
            #   matrix:@username:url      (例如 matrix:@username:deepin.org)
            #   telegram:username         (例如 telegram:deepin-community)
+           #   github:username           (例如 github:octocat)
            #   gsoc
 ```
 
-如果你没有 GitHub 帐号，那么你也可以考虑通过 [deepin-devel 邮件列表](mailing-list) 或是 deepin 的 [Matrix 聊天室](deepin-matrix)
+如果你没有 GitHub 帐号，那么你也可以考虑通过 [deepin-devel 邮件列表][mailing-list] 或是 deepin 的 [Matrix 聊天室][deepin-matrix]
 与我们取得联系并提供上述的信息，以便我们帮助你进行添加。
 
 [mailing-list]: https://www.freelists.org/list/deepin-devel
@@ -76,8 +77,8 @@ deepin 星球是 deepin 贡献者的博客聚合平台。
 
 ## 关于
 
-很多开源自由软件社区都有自己的订阅源聚合平台，例如 [Planet Qt](planet-qt)、[Planet KDE](planet-kde)、
-[NixOS Planet](nixos-planet)、[Planet Debian](planet-debian) 等。这些平台可以汇集对应开源社区的各类相关信息并将其呈现给
+很多开源自由软件社区都有自己的订阅源聚合平台，例如 [Planet Qt][planet-qt]、[Planet KDE][planet-kde]、
+[NixOS Planet][nixos-planet]、[Planet Debian][planet-debian] 等。这些平台可以汇集对应开源社区的各类相关信息并将其呈现给
 更多的社区贡献者和用户。deepin 星球也是与此相同意图的平台。
 
 [planet-qt]: https://planet.qt.io/
@@ -85,7 +86,7 @@ deepin 星球是 deepin 贡献者的博客聚合平台。
 [nixos-planet]: https://planet.nixos.org/
 [planet-debian]: https://planet.debian.org/
 
-此 repo 基于 [HUGO](hugo)，是基于 [Planet KDE](planet-kde) 的[源码](planet-kde-source)的修改。如果你感兴趣的话，也不妨
+此 repo 基于 [HUGO][hugo]，是基于 [Planet KDE][planet-kde] 的[源码][planet-kde-source]的修改。如果你感兴趣的话，也不妨
 看看对应的项目源码。对于源码的许可证信息，请参阅仓库中的各个源文件的文件头。
 
 [hugo]: https://gohugo.io/

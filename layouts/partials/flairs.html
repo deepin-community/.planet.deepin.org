@@ -11,6 +11,11 @@
   <span class="badge bg-secondary"><img width=12px height=12px src="{{ "img/matrix.svg" | relURL }}"/> {{ . }}</span>
 </a>
 {{ end }}
+{{ with .Params.github }}
+<a href="https://github.com/{{ . }}" target="_blank">
+  <span class="badge bg-black" style="padding: 0.5em"><i class="bi bi-github"></i> @{{ . }}</span>
+</a>
+{{ end }}
 {{ with .Params.gsoc }}
 <a href="https://summerofcode.withgoogle.com/" target="_blank">
   <span class="badge bg-info"><img width=12px height=12px src="{{ "img/gsoc.svg" | relURL }}"/> GSoC</span>

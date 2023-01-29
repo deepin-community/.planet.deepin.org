@@ -4,15 +4,6 @@
   </li>
 </ul>
 <ul class="navbar-nav flex-row flex-wrap ms-md-auto">
-  <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-      {{ i18n "theme" }} <i class="bi bi-circle-half"></i>
-    </a>
-    <ul class="dropdown-menu">
-      <li><a class="dropdown-item" onclick="setColorTheme('light')"><i class="bi bi-sun-fill"></i> {{ i18n "light" }}</a></li>
-      <li><a class="dropdown-item" onclick="setColorTheme('dark')"><i class="bi bi-moon-stars-fill"></i> {{ i18n "dark" }}</a></li>
-    </ul>
-  </li>
   <li class="nav-item ms-1 row">
     <a href="{{ with .OutputFormats.Get "RSS" }}{{ .RelPermalink }}{{ end }}" class="btn btn-sm btn-warning align-self-center">
       RSS <i class="bi bi-rss"></i>

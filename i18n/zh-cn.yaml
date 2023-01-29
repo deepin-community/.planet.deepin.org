@@ -8,9 +8,3 @@ up-post:
   other: '上一篇'
 add-feed:
   other: '添加你的博客源'
-theme:
-  other: '主题'
-dark:
-  other: '暗色'
-light:
-  other: '亮色'
