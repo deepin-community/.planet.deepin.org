@@ -1,4 +1,4 @@
-# [🌎 Planet deepin](#)
+# [🌎 Planet deepin](https://deepin-community.github.io/planet-deepin-org/)
 
 [English](./README.md) | [简体中文](./README.zh_CN.md)
 
