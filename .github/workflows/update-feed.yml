@@ -1,5 +1,6 @@
 name: Update Feed
 on:
+  push:
   schedule:
     - cron: '30 1 * * *'
   workflow_dispatch:
