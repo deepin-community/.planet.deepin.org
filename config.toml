@@ -1,4 +1,3 @@
-baseURL = "https://deepin-community.github.io/planet/"
 languageCode = "zh-cn"
 defaultContentLanguage = "zh-cn"
 title = "Planet deepin"
