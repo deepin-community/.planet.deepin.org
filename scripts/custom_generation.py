@@ -85,7 +85,7 @@ def process_feed(feed_id, feed_config) -> list:
     # all HTTP libraries work with sockets, so we set timeout for each socket operation
     socket.setdefaulttimeout(120)
 
-    feed_data = feedparser.parse(feed_url, resolve_relative_uris=False, sanitize_html=False)
+    feed_data = feedparser.parse(feed_url, resolve_relative_uris=True, sanitize_html=False)
     if feed_data.bozo:
         exception = feed_data.bozo_exception
         if type(exception) not in {feedparser.exceptions.CharacterEncodingOverride}:
@@ -93,11 +93,12 @@ def process_feed(feed_id, feed_config) -> list:
             return []
     site_link = feed_data.feed.get('link', '/'.join(feed_url.split('/')[:3]))
     site_url = feed_config.get('site_url', site_link)
-    site_tags = feed_config.get('tags', '').split(';')
+    site_tags = list(filter(lambda item: item is not '', feed_config.get('tags', '').split(';')))
+    feed_keep_categories = list(filter(lambda item: item is not '', feed_config.get('keep_categories', '').split(';')))
     feed_fields = {'feed_url': feed_url,
                    'site_url': site_url,
                    'avatar': feed_config.get('avatar', '')}
-    if (len(site_tags) > 0):
+    if len(site_tags) > 0:
         feed_fields['tags'] = site_tags
     for flair in feed_config.get('flairs', ';').split():
         if ':' in flair:
@@ -114,7 +115,20 @@ def process_feed(feed_id, feed_config) -> list:
     feed_lang = feed_config.get('lang', 'en')
     file_path = 'content' # if feed_lang == 'en' else f'content-trans/{feed_lang}'
     os.makedirs(file_path, exist_ok=True)
-    return [render_post(file_path, feed_fields, site_link, entry) for entry in feed_data.entries]
+    posts: list = []
+    for entry in feed_data.entries:
+        skip = True
+        if len(feed_keep_categories) > 0:
+            if hasattr(entry, 'tags'):
+                for category in entry.tags:
+                    if category.label in feed_keep_categories or category.term in feed_keep_categories:
+                        print(feed_keep_categories, category)
+                        skip = False
+        else:
+            skip = False
+        if not skip:
+            posts.append(render_post(file_path, feed_fields, site_link, entry))
+    return posts
 
 
 def generate_posts():
