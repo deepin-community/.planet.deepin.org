@@ -1,8 +1,9 @@
-此 repo 基于 [HUGO](hugo)，是基于 [Planet KDE](planet kde) 的[源码](planet kde source)的修改。尽管我们进行了一些调整以使其更适合
+此 repo 基于 [HUGO][hugo]，是基于 [Planet KDE][planet kde] 的[源码][planet kde source]的修改。尽管我们进行了一些调整以使其更适合
 我们的应用场景，但大体的工作方式没有太大差异。如果你发现了一些项目中的问题，那么也许它们的原始仓库中也存在，这时可以考虑将这些贡献回馈到原始
 仓库之中。
 
 [hugo]: https://gohugo.io/
+[planet kde]: https://planet.kde.org/
 [planet kde source]: https://invent.kde.org/websites/planet-kde-org/
 
 ## 与原始版本的差异
@@ -31,6 +32,13 @@
   - sh
   - pyyaml
 
+此外，项目以直接附带的形式（故无需自备）使用了下述依赖：
+
+- bootstrap 5.x (scss + js)
+- bootstrap-icons 1.10.x
+
+故在对项目进行修改的过程中，即可直接利用其对应的特性。
+
 ## 使用方式
 
 操作步骤大致为：
@@ -43,9 +51,12 @@
 
 ## 其他说明
 
+项目中的部分内容以 HUGO 生成时通过环境变量进行指定，类如通过 `HUGOxPARAMSxGITREPO` 传递了 `site.Params.GitRepo` 信息避免硬编码。
+这类变量即便不提供一般也不会影响站点效果，若需参考所使用到的环境变量信息，请参阅 `update-feed.yml`。
+
 项目附带的 HUGO 主题本身实际只提供了一个几乎最简化的主题，实际页面结构基本位于项目根目录下的 `layouts` 下。
 
-方便起见，主题 planet 引入了 bootstrap 5 与 bootstrap icons 以供使用。
+项目主题附带的 bootstrap 有对变量进行部分调整，若需升级，则请留意 `_variables.scss` 中的配置。
 
 此主题 *或许* 后续会服务于其他 deepin 静态站点的搭建，以便各个站点具有统一的样式风格（近似 KDE 的 aether-sass 的作用），但现在显然只是
 个基本的骨架主题，基本没有什么功能。
