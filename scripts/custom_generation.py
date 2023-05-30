@@ -93,8 +93,8 @@ def process_feed(feed_id, feed_config) -> list:
             return []
     site_link = feed_data.feed.get('link', '/'.join(feed_url.split('/')[:3]))
     site_url = feed_config.get('site_url', site_link)
-    site_tags = list(filter(lambda item: item is not '', feed_config.get('tags', '').split(';')))
-    feed_keep_categories = list(filter(lambda item: item is not '', feed_config.get('keep_categories', '').split(';')))
+    site_tags = list(filter(lambda item: item != '', feed_config.get('tags', '').split(';')))
+    feed_keep_categories = list(filter(lambda item: item != '', feed_config.get('keep_categories', '').split(';')))
     feed_fields = {'feed_url': feed_url,
                    'site_url': site_url,
                    'avatar': feed_config.get('avatar', '')}
@@ -127,7 +127,7 @@ def process_feed(feed_id, feed_config) -> list:
         else:
             skip = False
         if not skip:
-            posts.append(render_post(file_path, feed_fields, site_link, entry))
+            posts.append(render_post(file_path, feed_fields, site_url, entry))
     return posts
 
 
