@@ -1,0 +1,15 @@
+<d-header menu="[]">
+    <li class="d-menu-li" slot="menu">
+        <a class="vaild-link active" href="{{ .Site.BaseURL | relLangURL }}" title="">
+            <span title="{{ i18n "return-home" }}">{{ i18n "home" }}</span>
+        </a>
+    </li>
+    <li class="d-menu-li" slot="menu">
+        <a class="vaild-link active" href="https://github.com/deepin-community/.planet.deepin.org">
+            <span title="{{ i18n "add-feed" }}">{{ i18n "join" }}</span>
+        </a>
+    </li>
+    <li class="d-menu-li" slot="menu">
+        <a class="vaild-link active" href="{{ with .OutputFormats.Get "RSS" }}{{ .RelPermalink }}{{ end }}" title="">RSS</a>
+    </li>
+</d-header>

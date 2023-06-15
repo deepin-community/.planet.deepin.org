@@ -1,10 +1,16 @@
 welcome:
-  other: '欢迎来到 deepin 星球'
+  other: "欢迎来到 deepin 星球"
 introduction:
-  other: '这里是一个订阅源聚合站点，其汇集了向 [deepin 社区](https://deepin.org) 进行贡献的贡献者们与 deepin 相关的博客文章'
+  other: "这里是一个订阅源聚合站点，其汇集了向 [deepin 社区](https://deepin.org) 进行贡献的贡献者们与 deepin 相关的博客文章"
 down-post:
-  other: '下一篇'
+  other: "下一篇"
 up-post:
-  other: '上一篇'
+  other: "上一篇"
 add-feed:
-  other: '添加你的博客源'
+  other: "添加你的博客源"
+return-home:
+  other: "返回到首页"
+home:
+  other: "首页"
+join:
+  other: "加入"
